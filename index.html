@@ -3,285 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yassine Bouzidi | Secure Infrastructure & Cyber</title>
+    <title>Yassine Bouzidi | Administrateur Infrastructure Sécurisée</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&display=swap');
-
         :root {
-            --bg-dark: #0a0a0c;
-            --term-bg: #111115;
-            --matrix-green: #00ff41;
-            --accent-blue: #00bfff;
-            --text-main: #e0e0e0;
-            --text-dim: #888888;
-            --border: #333333;
+            --primary-color: #0F2027; /* Bleu très foncé, presque noir */
+            --secondary-color: #203A43; /* Bleu gris corporatif */
+            --accent-color: #007BFF; /* Bleu électrique dynamique */
+            --bg-color: #F8F9FA; /* Gris très clair */
+            --card-bg: #FFFFFF;
+            --text-color: #333333;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Fira Code', monospace;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(0, 255, 65, 0.05) 0%, transparent 60%),
-                linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 40px 40px;
         }
 
-        .terminal-container {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: var(--term-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
-            overflow: hidden;
-        }
-
-        .terminal-header {
-            background-color: #1a1a1a;
-            padding: 10px 15px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-        }
-
-        .dots span {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-        .dot-red { background-color: #ff5f56; }
-        .dot-yellow { background-color: #ffbd2e; }
-        .dot-green { background-color: #27c93f; }
-
-        .terminal-title {
-            margin-left: 15px;
-            color: var(--text-dim);
-            font-size: 0.9em;
-        }
-
-        .terminal-body {
-            padding: 30px;
-        }
-
-        .prompt {
-            color: var(--accent-blue);
-            font-weight: bold;
-        }
-        .prompt::after {
-            content: " yassine@root:~# ";
-            color: var(--matrix-green);
-        }
-
-        h1 {
-            color: var(--matrix-green);
-            font-size: 2.2em;
-            margin: 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
-        }
-
-        h2 {
-            color: var(--accent-blue);
-            border-bottom: 1px dashed var(--border);
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
-
-        .sys-info {
-            color: var(--text-dim);
-            font-size: 0.9em;
-            margin-bottom: 30px;
-            border-left: 2px solid var(--matrix-green);
-            padding-left: 15px;
-        }
-
-        .grid-skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .skill-item {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            padding: 10px;
+        /* En-tête (Hero Section) */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 20px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #E2E8F0;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 1000px;
+            margin: -40px auto 40px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Section Compétences */
+        .skills-container {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .skills-container h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .skill-badge {
+            display: inline-block;
+            background-color: #EDF2F7;
+            color: var(--secondary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin: 5px;
             transition: all 0.3s ease;
         }
-        .skill-item:hover {
-            border-color: var(--matrix-green);
+
+        .skill-badge:hover {
+            background-color: var(--accent-color);
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+        }
+
+        /* Section Briefs (Grille) */
+        .section-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .briefs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .brief-card {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border);
-            padding: 20px;
-            margin-bottom: 20px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        .brief-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background-color: var(--accent-blue);
-            transition: width 0.3s ease;
-        }
-        .brief-card:hover::before {
-            width: 100%;
-            opacity: 0.05;
-        }
-        .brief-card:hover {
-            border-color: var(--accent-blue);
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border-top: 4px solid var(--accent-color);
+            display: flex;
+            flex-direction: column;
         }
 
-        .brief-title {
-            color: #fff;
-            margin-top: 0;
+        .brief-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .brief-card h3 {
             font-size: 1.3em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .brief-card p {
+            color: var(--text-light);
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tags {
+            margin-bottom: 20px;
         }
 
         .tag {
-            display: inline-block;
-            background-color: rgba(0, 255, 65, 0.1);
-            color: var(--matrix-green);
-            border: 1px solid var(--matrix-green);
-            padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            margin-right: 8px;
-            margin-bottom: 8px;
+            font-size: 0.75em;
+            background: rgba(0, 123, 255, 0.1);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-weight: 600;
         }
 
-        .btn-link {
+        .btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 8px 15px;
-            background-color: transparent;
-            color: var(--accent-blue);
+            text-align: center;
+            background-color: var(--accent-color);
+            color: white;
             text-decoration: none;
-            border: 1px solid var(--accent-blue);
-            transition: all 0.3s;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            font-weight: bold;
-        }
-        .btn-link:hover {
-            background-color: var(--accent-blue);
-            color: var(--bg-dark);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
         }
 
-        .blinking-cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background-color: var(--matrix-green);
-            animation: blink 1s step-end infinite;
-            vertical-align: text-bottom;
+        .btn:hover {
+            background-color: #0056b3;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+        /* Pied de page */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+            background-color: var(--card-bg);
+            border-top: 1px solid #E2E8F0;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <div class="terminal-container">
-        <div class="terminal-header">
-            <div class="dots">
-                <span class="dot-red"></span>
-                <span class="dot-yellow"></span>
-                <span class="dot-green"></span>
-            </div>
-            <div class="terminal-title">bash - root@simplon-server - 80x24</div>
+    <header>
+        <h1>Yassine Bouzidi</h1>
+        <p>Administrateur Infrastructure Sécurisée & Cloud</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="skills-container">
+            <h2>Expertises Techniques</h2>
+            <span class="skill-badge">Administration Linux & Windows</span>
+            <span class="skill-badge">Microsoft Azure (IaaS/PaaS)</span>
+            <span class="skill-badge">Réseaux (Cisco, VLAN, OSPF)</span>
+            <span class="skill-badge">Cybersécurité & Hardening</span>
+            <span class="skill-badge">Docker & Conteneurisation</span>
+            <span class="skill-badge">Active Directory & PowerShell</span>
         </div>
 
-        <div class="terminal-body">
-            <p><span class="prompt"></span>./fetch_profile.sh</p>
-            
-            <h1>Yassine Bouzidi</h1>
-            
-            <div class="sys-info">
-                > OS: Secure Infrastructure Administrator<br>
-                > Status: En formation à Simplon<br>
-                > Kernel: Cybersécurité, Réseaux & Systèmes<br>
-                > Uptime: Toujours prêt pour de nouveaux défis
-            </div>
-
-            <p><span class="prompt"></span>cat /etc/skills.conf</p>
-            <div class="grid-skills">
-                <div class="skill-item">🐧 Linux / Debian</div>
-                <div class="skill-item">🪟 Windows Server & AD</div>
-                <div class="skill-item">☁️ Microsoft Azure</div>
-                <div class="skill-item">🐳 Docker / DevOps</div>
-                <div class="skill-item">🛡️ Hardening & SOC</div>
-                <div class="skill-item">🌐 VLAN / OSPF / Cisco</div>
-            </div>
-
-            <p><span class="prompt"></span>ls -la /var/www/briefs_techniques/</p>
-            <h2>Exploits & Projets Techniques</h2>
-
+        <h2 class="section-title">Mes Projets & Briefs Professionnels</h2>
+        
+        <div class="briefs-grid">
             <!-- Brief 1 -->
             <div class="brief-card">
-                <h3 class="brief-title">Infrastructure Réseau Haute Dispo & VLANs</h3>
-                <p>Analyse des besoins techniques, modélisation d'architecture cible sur Packet Tracer, configuration de la redondance (STP) et du routage inter-VLAN.</p>
-                <div>
+                <h3>Architecture Réseau Résiliente</h3>
+                <p>Conception d'une infrastructure réseau sécurisée avec haute disponibilité. Configuration des VLANs, routage, agrégation de liens et tests de résilience sous Cisco Packet Tracer.</p>
+                <div class="tags">
                     <span class="tag">Cisco</span>
-                    <span class="tag">Réseau</span>
-                    <span class="tag">Packet Tracer</span>
+                    <span class="tag">Routage</span>
+                    <span class="tag">VLAN</span>
                 </div>
-                <a href="remplace_par_ton_fichier.pdf" target="_blank" class="btn-link">>> Exécuter le Brief_Réseau.pdf</a>
+                <a href="nom-de-ton-fichier-1.pdf" target="_blank" class="btn">Consulter le dossier</a>
             </div>
 
             <!-- Brief 2 -->
             <div class="brief-card">
-                <h3 class="brief-title">Déploiement Cloud Azure & Sécurité IaaS</h3>
-                <p>Création de templates ARM pour automatiser le déploiement de VMs Ubuntu, configuration des vNet, et sécurisation des flux (NSG).</p>
-                <div>
-                    <span class="tag">Azure</span>
-                    <span class="tag">Cloud Computing</span>
-                    <span class="tag">Sécurité</span>
+                <h3>Déploiement Cloud Azure</h3>
+                <p>Création et exécution de templates ARM pour déployer une infrastructure sécurisée sur Microsoft Azure (Machine Virtuelle Ubuntu, vNet, règles de sécurité NSG).</p>
+                <div class="tags">
+                    <span class="tag">Microsoft Azure</span>
+                    <span class="tag">Cloud</span>
+                    <span class="tag">Sécurité IaaS</span>
                 </div>
-                <a href="remplace_par_ton_fichier.pdf" target="_blank" class="btn-link">>> Exécuter le Brief_Azure.pdf</a>
+                <a href="nom-de-ton-fichier-2.pdf" target="_blank" class="btn">Consulter le dossier</a>
             </div>
 
             <!-- Brief 3 -->
             <div class="brief-card">
-                <h3 class="brief-title">Automatisation Active Directory (PowerShell)</h3>
-                <p>Développement de scripts de provisionnement massif d'utilisateurs sécurisés sur un domaine Windows avec structuration des OU.</p>
-                <div>
+                <h3>Automatisation Active Directory</h3>
+                <p>Développement de scripts PowerShell pour la création en masse d'utilisateurs sécurisés et la gestion des droits au sein d'un environnement Windows Server.</p>
+                <div class="tags">
                     <span class="tag">Windows Server</span>
                     <span class="tag">PowerShell</span>
-                    <span class="tag">Active Directory</span>
+                    <span class="tag">Scripting</span>
                 </div>
-                <a href="remplace_par_ton_fichier.pdf" target="_blank" class="btn-link">>> Exécuter le Brief_AD.pdf</a>
+                <a href="nom-de-ton-fichier-3.pdf" target="_blank" class="btn">Consulter le dossier</a>
             </div>
-
-            <p><span class="prompt"></span>netstat -antp | grep ESTABLISHED</p>
-            <h2>Établir une connexion (Contact)</h2>
-            <p>
-                [+] <a href="https://linkedin.com/in/ton-profil" target="_blank" style="color: var(--accent-blue);">LinkedIn: linkedin.com/in/yassine-bouzidi</a><br>
-                [+] <a href="https://github.com/yassine-bouzidi" target="_blank" style="color: var(--accent-blue);">GitHub: github.com/yassine-bouzidi</a>
-            </p>
-
-            <p><span class="prompt"></span><span class="blinking-cursor"></span></p>
         </div>
+
     </div>
+
+    <footer>
+        <p>Retrouvez-moi sur les réseaux professionnels :</p>
+        <p style="margin-top: 10px;">
+            <a href="https://linkedin.com/in/ton-profil" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com/yassine-bouzidi" target="_blank">GitHub</a>
+        </p>
+    </footer>
 
 </body>
 </html>
