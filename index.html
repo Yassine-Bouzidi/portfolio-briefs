@@ -2,10 +2,116 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio Cybersécurité</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yassine Bouzidi - Portfolio Cybersécurité & Système</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #00ff00;
+            --heading-color: #ffffff;
+            --border-color: #30363d;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+        }
+        h1, h2 {
+            color: var(--heading-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        .brief-card {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--text-color);
+        }
+        .brief-card h3 {
+            color: var(--heading-color);
+            margin-top: 0;
+        }
+        .tag {
+            background-color: #238636;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            margin-right: 5px;
+        }
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .prompt::before {
+            content: "yassine@simplon:~$ ";
+            color: var(--text-color);
+        }
+    </style>
 </head>
 <body>
-    <h1>Portfolio de [Ton Prénom] - Administrateur Infrastructure Sécurisée</h1>
-    <p>Mes briefs techniques arriveront bientôt ici.</p>
+    <div class="container">
+        <p class="prompt">whoami</p>
+        <h1>Yassine Bouzidi</h1>
+        <p><strong>Administrateur Infrastructure Sécurisée / DevOps</strong></p>
+        <p>Étudiant à l'école Simplon. Passionné par l'administration système (Linux/Windows), la cybersécurité, le cloud (Azure) et la conteneurisation (Docker).</p>
+        
+        <p class="prompt">ls -l ./mes-briefs</p>
+        <h2>Mes Projets & Briefs Techniques</h2>
+        
+        <!-- Brief 1 -->
+        <div class="brief-card">
+            <h3>Architecture Réseau Sécurisée & VLANs</h3>
+            <p>Conception d'une architecture cible avec redondance (VLAN, routage, agrégation) et documentation technique sur Packet Tracer.</p>
+            <p>
+                <span class="tag">Cisco</span>
+                <span class="tag">Réseau</span>
+                <span class="tag">Packet Tracer</span>
+            </p>
+            <a href="#">[Voir le brief détaillé]</a>
+        </div>
+
+        <!-- Brief 2 -->
+        <div class="brief-card">
+            <h3>Déploiement Cloud Azure & Sécurité</h3>
+            <p>Création de templates ARM pour déployer des VMs Ubuntu, vNet, et analyse des menaces cloud (IaaS/PaaS).</p>
+            <p>
+                <span class="tag">Azure</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Cloud</span>
+            </p>
+            <a href="#">[Voir le brief détaillé]</a>
+        </div>
+
+        <!-- Brief 3 -->
+        <div class="brief-card">
+            <h3>Scripting Active Directory</h3>
+            <p>Développement de scripts PowerShell pour la création en masse d'utilisateurs sécurisés sur un domaine Windows Server.</p>
+            <p>
+                <span class="tag">Windows Server</span>
+                <span class="tag">PowerShell</span>
+                <span class="tag">Active Directory</span>
+            </p>
+            <a href="#">[Voir le brief détaillé]</a>
+        </div>
+
+        <p class="prompt">cat ./contact.txt</p>
+        <h2>Contact</h2>
+        <p>Retrouvez-moi sur : <a href="https://linkedin.com/in/ton-profil" target="_blank">LinkedIn</a> | <a href="https://github.com/yassine-bouzidi" target="_blank">GitHub</a></p>
+    </div>
 </body>
 </html>
