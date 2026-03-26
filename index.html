@@ -3,115 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yassine Bouzidi - Portfolio Cybersécurité & Système</title>
+    <title>Yassine Bouzidi | Secure Infrastructure & Cyber</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&display=swap');
+
         :root {
-            --bg-color: #0d1117;
-            --text-color: #00ff00;
-            --heading-color: #ffffff;
-            --border-color: #30363d;
+            --bg-dark: #0a0a0c;
+            --term-bg: #111115;
+            --matrix-green: #00ff41;
+            --accent-blue: #00bfff;
+            --text-main: #e0e0e0;
+            --text-dim: #888888;
+            --border: #333333;
         }
+
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Fira Code', monospace;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0, 255, 65, 0.05) 0%, transparent 60%),
+                linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+
+        .terminal-container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: var(--term-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            overflow: hidden;
         }
-        h1, h2 {
-            color: var(--heading-color);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
+
+        .terminal-header {
+            background-color: #1a1a1a;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
         }
+
+        .dots span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .dot-red { background-color: #ff5f56; }
+        .dot-yellow { background-color: #ffbd2e; }
+        .dot-green { background-color: #27c93f; }
+
+        .terminal-title {
+            margin-left: 15px;
+            color: var(--text-dim);
+            font-size: 0.9em;
+        }
+
+        .terminal-body {
+            padding: 30px;
+        }
+
+        .prompt {
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+        .prompt::after {
+            content: " yassine@root:~# ";
+            color: var(--matrix-green);
+        }
+
+        h1 {
+            color: var(--matrix-green);
+            font-size: 2.2em;
+            margin: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+        }
+
+        h2 {
+            color: var(--accent-blue);
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .sys-info {
+            color: var(--text-dim);
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            border-left: 2px solid var(--matrix-green);
+            padding-left: 15px;
+        }
+
+        .grid-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .skill-item {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            padding: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .skill-item:hover {
+            border-color: var(--matrix-green);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+        }
+
         .brief-card {
-            border: 1px solid var(--border-color);
-            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            padding: 20px;
             margin-bottom: 20px;
-            border-left: 4px solid var(--text-color);
+            position: relative;
+            transition: all 0.3s ease;
         }
-        .brief-card h3 {
-            color: var(--heading-color);
+        .brief-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background-color: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+        .brief-card:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+        .brief-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .brief-title {
+            color: #fff;
             margin-top: 0;
+            font-size: 1.3em;
         }
+
         .tag {
-            background-color: #238636;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 10px;
+            display: inline-block;
+            background-color: rgba(0, 255, 65, 0.1);
+            color: var(--matrix-green);
+            border: 1px solid var(--matrix-green);
+            padding: 3px 10px;
+            border-radius: 15px;
             font-size: 0.8em;
-            margin-right: 5px;
+            margin-right: 8px;
+            margin-bottom: 8px;
         }
-        a {
-            color: #58a6ff;
+
+        .btn-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: transparent;
+            color: var(--accent-blue);
             text-decoration: none;
+            border: 1px solid var(--accent-blue);
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            font-weight: bold;
         }
-        a:hover {
-            text-decoration: underline;
+        .btn-link:hover {
+            background-color: var(--accent-blue);
+            color: var(--bg-dark);
         }
-        .prompt::before {
-            content: "yassine@simplon:~$ ";
-            color: var(--text-color);
+
+        .blinking-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--matrix-green);
+            animation: blink 1s step-end infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <p class="prompt">whoami</p>
-        <h1>Yassine Bouzidi</h1>
-        <p><strong>Administrateur Infrastructure Sécurisée / DevOps</strong></p>
-        <p>Étudiant à l'école Simplon. Passionné par l'administration système (Linux/Windows), la cybersécurité, le cloud (Azure) et la conteneurisation (Docker).</p>
-        
-        <p class="prompt">ls -l ./mes-briefs</p>
-        <h2>Mes Projets & Briefs Techniques</h2>
-        
-        <!-- Brief 1 -->
-        <div class="brief-card">
-            <h3>Architecture Réseau Sécurisée & VLANs</h3>
-            <p>Conception d'une architecture cible avec redondance (VLAN, routage, agrégation) et documentation technique sur Packet Tracer.</p>
-            <p>
-                <span class="tag">Cisco</span>
-                <span class="tag">Réseau</span>
-                <span class="tag">Packet Tracer</span>
-            </p>
-            <a href="#">[Voir le brief détaillé]</a>
+
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+            </div>
+            <div class="terminal-title">bash - root@simplon-server - 80x24</div>
         </div>
 
-        <!-- Brief 2 -->
-        <div class="brief-card">
-            <h3>Déploiement Cloud Azure & Sécurité</h3>
-            <p>Création de templates ARM pour déployer des VMs Ubuntu, vNet, et analyse des menaces cloud (IaaS/PaaS).</p>
-            <p>
-                <span class="tag">Azure</span>
-                <span class="tag">Linux</span>
-                <span class="tag">Cloud</span>
-            </p>
-            <a href="#">[Voir le brief détaillé]</a>
-        </div>
+        <div class="terminal-body">
+            <p><span class="prompt"></span>./fetch_profile.sh</p>
+            
+            <h1>Yassine Bouzidi</h1>
+            
+            <div class="sys-info">
+                > OS: Secure Infrastructure Administrator<br>
+                > Status: En formation à Simplon<br>
+                > Kernel: Cybersécurité, Réseaux & Systèmes<br>
+                > Uptime: Toujours prêt pour de nouveaux défis
+            </div>
 
-        <!-- Brief 3 -->
-        <div class="brief-card">
-            <h3>Scripting Active Directory</h3>
-            <p>Développement de scripts PowerShell pour la création en masse d'utilisateurs sécurisés sur un domaine Windows Server.</p>
-            <p>
-                <span class="tag">Windows Server</span>
-                <span class="tag">PowerShell</span>
-                <span class="tag">Active Directory</span>
-            </p>
-            <a href="#">[Voir le brief détaillé]</a>
-        </div>
+            <p><span class="prompt"></span>cat /etc/skills.conf</p>
+            <div class="grid-skills">
+                <div class="skill-item">🐧 Linux / Debian</div>
+                <div class="skill-item">🪟 Windows Server & AD</div>
+                <div class="skill-item">☁️ Microsoft Azure</div>
+                <div class="skill-item">🐳 Docker / DevOps</div>
+                <div class="skill-item">🛡️ Hardening & SOC</div>
+                <div class="skill-item">🌐 VLAN / OSPF / Cisco</div>
+            </div>
 
-        <p class="prompt">cat ./contact.txt</p>
-        <h2>Contact</h2>
-        <p>Retrouvez-moi sur : <a href="https://linkedin.com/in/ton-profil" target="_blank">LinkedIn</a> | <a href="https://github.com/yassine-bouzidi" target="_blank">GitHub</a></p>
+            <p><span class="prompt"></span>ls -la /var/www/briefs_techniques/</p>
+            <h2>Exploits & Projets Techniques</h2>
+
+            <!-- Brief 1 -->
+            <div class="brief-card">
+                <h3 class="brief-title">Infrastructure Réseau Haute Dispo & VLANs</h3>
+                <p>Analyse des besoins techniques, modélisation d'architecture cible sur Packet Tracer, configuration de la redondance (STP) et du routage inter-VLAN.</p>
+                <div>
+                    <span class="tag">Cisco</span>
+                    <span class="tag">Réseau</span>
+                    <span class="tag">Packet Tracer</span>
+                </div>
+                <a href="remplace_par_ton_fichier.pdf" target="_blank" class="btn-link">>> Exécuter le Brief_Réseau.pdf</a>
+            </div>
+
+            <!-- Brief 2 -->
+            <div class="brief-card">
+                <h3 class="brief-title">Déploiement Cloud Azure & Sécurité IaaS</h3>
+                <p>Création de templates ARM pour automatiser le déploiement de VMs Ubuntu, configuration des vNet, et sécurisation des flux (NSG).</p>
+                <div>
+                    <span class="tag">Azure</span>
+                    <span class="tag">Cloud Computing</span>
+                    <span class="tag">Sécurité</span>
+                </div>
+                <a href="remplace_par_ton_fichier.pdf" target="_blank" class="btn-link">>> Exécuter le Brief_Azure.pdf</a>
+            </div>
+
+            <!-- Brief 3 -->
+            <div class="brief-card">
+                <h3 class="brief-title">Automatisation Active Directory (PowerShell)</h3>
+                <p>Développement de scripts de provisionnement massif d'utilisateurs sécurisés sur un domaine Windows avec structuration des OU.</p>
+                <div>
+                    <span class="tag">Windows Server</span>
+                    <span class="tag">PowerShell</span>
+                    <span class="tag">Active Directory</span>
+                </div>
+                <a href="remplace_par_ton_fichier.pdf" target="_blank" class="btn-link">>> Exécuter le Brief_AD.pdf</a>
+            </div>
+
+            <p><span class="prompt"></span>netstat -antp | grep ESTABLISHED</p>
+            <h2>Établir une connexion (Contact)</h2>
+            <p>
+                [+] <a href="https://linkedin.com/in/ton-profil" target="_blank" style="color: var(--accent-blue);">LinkedIn: linkedin.com/in/yassine-bouzidi</a><br>
+                [+] <a href="https://github.com/yassine-bouzidi" target="_blank" style="color: var(--accent-blue);">GitHub: github.com/yassine-bouzidi</a>
+            </p>
+
+            <p><span class="prompt"></span><span class="blinking-cursor"></span></p>
+        </div>
     </div>
+
 </body>
 </html>
